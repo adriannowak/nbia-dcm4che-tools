@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- Properties for the session factory -->
+		<property name="connection.datasource">java:/nbia</property>
+		<!--  property name="connection.url">jdbc:mysql://localhost:3306/nbiadb</property>
+        <property name="connection.username">nbia_admin</property>
+        <property name="connection.password">p@ssp0rt</property -->		
+		<property name="hibernate.show_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="max_fetch_depth">1</property>
+		<property name="cglib.use_reflection_optimizer">false</property>
+		<property name="jdbc.batch_versioned_data">true</property>
+		<property name="jdbc.use_streams_for_binary">true</property>
+		<property name="cache.use_query_cache">false</property>
+		<property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+
+		<!-- Mapped Resources -->
+        <mapping resource="gov/nih/nci/nbia/internaldomain/ClinicalTrial.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/Patient.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/Study.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/GeneralSeries.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/GeneralImage.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/GeneralEquipment.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/CTImage.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/TrialDataProvenance.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/TrialSite.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/Annotation.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/DeletionAuditTrail.hbm.xml" />
+
+        <mapping resource="gov/nih/nci/nbia/internaldomain/ImageMarkup.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/SubmissionHistory.hbm.xml" />
+
+        <mapping resource="gov/nih/nci/nbia/internaldomain/AimImagingObservationCharacteristic.hbm.xml" />
+        <mapping resource="gov/nih/nci/nbia/internaldomain/AimQuantification.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
+

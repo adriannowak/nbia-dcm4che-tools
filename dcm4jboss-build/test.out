@@ -1,0 +1,379 @@
+Buildfile: build.xml
+
+jar:
+
+ejbdoclet:
+[ejbdoclet] (XDocletMain.start                   47  ) Running <remoteinterface/>
+[ejbdoclet] (XDocletMain.start                   47  ) Running <localinterface/>
+[ejbdoclet] (XDocletMain.start                   47  ) Running <homeinterface/>
+[ejbdoclet] (XDocletMain.start                   47  ) Running <localhomeinterface/>
+[ejbdoclet] (XDocletMain.start                   47  ) Running <entitycmp/>
+[ejbdoclet] (XDocletMain.start                   47  ) Running <session/>
+[ejbdoclet] (XDocletMain.start                   47  ) Running <deploymentdescriptor/>
+[ejbdoclet] (XDocletMain.start                   47  ) Running <jboss/>
+
+compile:
+    [javac] Compiling 357 source files to C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\classes
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\interfaces\AEDTO.java:48: package org.dcm4cheri.util does not exist
+    [javac] import org.dcm4cheri.util.StringUtils;
+    [javac]                          ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\CodeBean.java:51: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\CodeBean.java:52: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.DcmElement;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\CodeBean.java:53: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\CodeBean.java:178: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.CodeBean
+    [javac]     public static CodeLocal valueOf(CodeLocalHome codeHome, Dataset item)
+    [javac]                                                             ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\CodeBean.java:196: cannot find symbol
+    [javac] symbol  : class DcmElement
+    [javac] location: class org.dcm4chex.archive.ejb.entity.CodeBean
+    [javac]     public static void addCodesTo(CodeLocalHome codeHome, DcmElement sq, Collection c) 
+    [javac]                                                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\CodeBean.java:207: cannot find symbol
+    [javac] symbol  : class DcmElement
+    [javac] location: class org.dcm4chex.archive.ejb.entity.CodeBean
+    [javac]     public static boolean checkCodes(String prompt, DcmElement sq) {
+    [javac]                                                     ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\ContentItemBean.java:50: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\ContentItemBean.java:51: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\ContentItemBean.java:142: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.ContentItemBean
+    [javac]     public Long ejbCreate(Dataset item) throws CreateException {
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\ContentItemBean.java:157: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.ContentItemBean
+    [javac]     public void ejbPostCreate(Dataset item) throws CreateException {
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\InstanceLocal.java:83: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset newAttrs,org.dcm4che.data.Dataset modifiedAttrs ) ;
+    [javac]                                                     ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\InstanceLocal.java:83: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset newAttrs,org.dcm4che.data.Dataset modifiedAttrs ) ;
+    [javac]                                                                                       ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\InstanceLocal.java:85: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4che.data.Dataset getAttributes( boolean supplement ) ;
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\InstanceLocal.java:87: package org.dcm4che.data does not exist
+    [javac]    public void setAttributes( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\InstanceLocal.java:89: package org.dcm4che.data does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                  ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\InstanceLocal.java:89: package org.dcm4che.data does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                                              ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\InstanceLocal.java:89: package org.dcm4che.net does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                                                                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\SeriesLocal.java:98: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset newAttrs,boolean overwriteReqAttrSQ,org.dcm4che.data.Dataset modifiedAttrs ) ;
+    [javac]                                                     ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\SeriesLocal.java:98: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset newAttrs,boolean overwriteReqAttrSQ,org.dcm4che.data.Dataset modifiedAttrs ) ;
+    [javac]                                                                                                                  ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\SeriesLocal.java:116: package org.dcm4che.data does not exist
+    [javac]    public void setAttributes( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\SeriesLocal.java:118: package org.dcm4che.data does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                  ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\SeriesLocal.java:118: package org.dcm4che.data does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                                              ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\SeriesLocal.java:118: package org.dcm4che.net does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                                                                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\SeriesLocal.java:120: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4che.data.Dataset getAttributes( boolean supplement ) ;
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\StudyLocal.java:144: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4che.data.Dataset getAttributes( boolean supplement ) ;
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\StudyLocal.java:146: package org.dcm4che.data does not exist
+    [javac]    public void setAttributes( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\StudyLocal.java:148: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset newAttrs,org.dcm4che.data.Dataset modifiedAttrs ) ;
+    [javac]                                                     ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\StudyLocal.java:148: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset newAttrs,org.dcm4che.data.Dataset modifiedAttrs ) ;
+    [javac]                                                                                       ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\StudyLocal.java:150: package org.dcm4che.data does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                  ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\StudyLocal.java:150: package org.dcm4che.data does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                                              ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\StudyLocal.java:150: package org.dcm4che.net does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                                                                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\MPPSLocal.java:72: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4che.data.Dataset getAttributes(  ) ;
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\MPPSLocal.java:74: package org.dcm4che.data does not exist
+    [javac]    public void setAttributes( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:99: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4che.data.Dataset getAttributes( boolean supplement ) ;
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:101: package org.dcm4che.data does not exist
+    [javac]    public void setAttributes( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:103: package org.dcm4che.data does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                  ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:103: package org.dcm4che.data does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                                              ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:103: package org.dcm4che.net does not exist
+    [javac]    public void coerceAttributes( org.dcm4che.data.Dataset ds,org.dcm4che.data.Dataset coercedElements ) throws org.dcm4che.net.DcmServiceException;
+    [javac]                                                                                                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:105: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                                     ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:107: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset attrs,org.dcm4che.data.Dataset modifiedAttrs ) ;
+    [javac]                                                     ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:107: package org.dcm4che.data does not exist
+    [javac]    public boolean updateAttributes( org.dcm4che.data.Dataset attrs,org.dcm4che.data.Dataset modifiedAttrs ) ;
+    [javac]                                                                                    ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\PatientLocal.java:109: package org.dcm4che.data does not exist
+    [javac]    public boolean updateOtherPatientIDs( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                                          ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPPPSBean.java:45: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPPPSBean.java:46: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPPPSBean.java:47: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.UIDs;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPPPSBean.java:187: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPPPSBean
+    [javac]     public Long ejbCreate(Dataset ds, PatientLocal patient)
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPPPSBean.java:194: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPPPSBean
+    [javac]     public void ejbPostCreate(Dataset ds, PatientLocal patient)
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPPPSBean.java:244: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPPPSBean
+    [javac]     public Dataset getAttributes() {
+    [javac]            ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPPPSBean.java:251: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPPPSBean
+    [javac]     public void setAttributes(Dataset ds) {
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:54: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:55: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.DcmElement;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:56: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:57: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.UIDs;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:142: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSBean
+    [javac]     public Long ejbCreate(Dataset ds, PatientLocal patient) throws CreateException {
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:147: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSBean
+    [javac]     public void ejbPostCreate(Dataset ds, PatientLocal patient)
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:183: cannot find symbol
+    [javac] symbol  : class DcmElement
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSBean
+    [javac]     private void createScheduledHumanPerformers(DcmElement sq)
+    [javac]                                                 ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:193: cannot find symbol
+    [javac] symbol  : class DcmElement
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSBean
+    [javac]     private void createRefRequests(DcmElement sq) throws CreateException {
+    [javac]                                    ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:443: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSBean
+    [javac]     public Dataset getAttributes() {
+    [javac]            ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSBean.java:450: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSBean
+    [javac]     public void setAttributes(Dataset ds) {
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\GPSPSRequestLocalHome.java:19: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4chex.archive.ejb.interfaces.GPSPSRequestLocal create(org.dcm4che.data.Dataset ds , org.dcm4chex.archive.ejb.interfaces.GPSPSLocal gpsps)
+    [javac]                                                                                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\GPSPSPerformerLocalHome.java:19: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4chex.archive.ejb.interfaces.GPSPSPerformerLocal create(org.dcm4che.data.Dataset ds , org.dcm4chex.archive.ejb.interfaces.GPSPSLocal gpsps)
+    [javac]                                                                                          ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\GPSPSLocal.java:59: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4che.data.Dataset getAttributes(  ) ;
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\GPSPSLocal.java:61: package org.dcm4che.data does not exist
+    [javac]    public void setAttributes( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSPerformerBean.java:53: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSPerformerBean.java:54: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.PersonName;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSPerformerBean.java:55: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSPerformerBean.java:109: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSPerformerBean
+    [javac]     public Long ejbCreate(Dataset ds, GPSPSLocal gpsps)
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSPerformerBean.java:136: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSPerformerBean
+    [javac]     public void ejbPostCreate(Dataset ds, GPSPSLocal gpsps)
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSRequestBean.java:47: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSRequestBean.java:48: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSRequestBean.java:71: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSRequestBean
+    [javac]     public Long ejbCreate(Dataset ds, GPSPSLocal gpsps)
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\GPSPSRequestBean.java:78: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.GPSPSRequestBean
+    [javac]     public void ejbPostCreate(Dataset ds, GPSPSLocal gpsps)
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:55: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:56: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.DcmElement;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:57: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:58: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.UIDs;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:123: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.HPBean
+    [javac]     public Long ejbCreate(Dataset ds) throws CreateException {
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:128: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.HPBean
+    [javac]     public void ejbPostCreate(Dataset ds) throws CreateException {
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:141: cannot find symbol
+    [javac] symbol  : class DcmElement
+    [javac] location: class org.dcm4chex.archive.ejb.entity.HPBean
+    [javac] 	private void createHPDefinition(DcmElement sq)
+    [javac] 	                                ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:263: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.HPBean
+    [javac]     public Dataset getAttributes() {
+    [javac]            ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPBean.java:270: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.HPBean
+    [javac]     public void setAttributes(Dataset ds) {
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\HPDefinitionLocalHome.java:19: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4chex.archive.ejb.interfaces.HPDefinitionLocal create(org.dcm4che.data.Dataset ds , org.dcm4chex.archive.ejb.interfaces.HPLocal hp)
+    [javac]                                                                                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\HPLocal.java:37: package org.dcm4che.data does not exist
+    [javac]    public org.dcm4che.data.Dataset getAttributes(  ) ;
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\target\xdoclet\java\org\dcm4chex\archive\ejb\interfaces\HPLocal.java:39: package org.dcm4che.data does not exist
+    [javac]    public void setAttributes( org.dcm4che.data.Dataset ds ) ;
+    [javac]                                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPDefinitionBean.java:55: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPDefinitionBean.java:56: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.DcmElement;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPDefinitionBean.java:57: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPDefinitionBean.java:106: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.HPDefinitionBean
+    [javac]     public Long ejbCreate(Dataset ds, HPLocal hp)
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPDefinitionBean.java:113: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.HPDefinitionBean
+    [javac]     public void ejbPostCreate(Dataset ds, HPLocal hp)
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\HPDefinitionBean.java:131: cannot find symbol
+    [javac] symbol  : class DcmElement
+    [javac] location: class org.dcm4chex.archive.ejb.entity.HPDefinitionBean
+    [javac]     private void initCodes(DcmElement sq, Collection c) throws CreateException,
+    [javac]                            ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:61: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.Dataset;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:62: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.DcmElement;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:63: package org.dcm4che.data does not exist
+    [javac] import org.dcm4che.data.DcmObjectFactory;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:64: package org.dcm4che.dict does not exist
+    [javac] import org.dcm4che.dict.Tags;
+    [javac]                        ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:65: package org.dcm4che.net does not exist
+    [javac] import org.dcm4che.net.DcmServiceException;
+    [javac]                       ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:66: package org.dcm4cheri.util does not exist
+    [javac] import org.dcm4cheri.util.StringUtils;
+    [javac]                          ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:488: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.InstanceBean
+    [javac]     public Long ejbCreate(Dataset ds, SeriesLocal series)
+    [javac]                           ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:494: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.InstanceBean
+    [javac]     public void ejbPostCreate(Dataset ds, SeriesLocal series)
+    [javac]                               ^
+    [javac] C:\workspaces\dcm4che-tools\dcm4jboss-ejb\src\java\org\dcm4chex\archive\ejb\entity\InstanceBean.java:504: cannot find symbol
+    [javac] symbol  : class Dataset
+    [javac] location: class org.dcm4chex.archive.ejb.entity.InstanceBean
+    [javac]     private boolean updateSrCode(Dataset oldSrCode, Dataset newSrCode) {
+    [javac]                                  ^
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+    [javac] 100 errors

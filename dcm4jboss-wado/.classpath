@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/dcm4jboss-sar"/>
+	<classpathentry kind="var" path="JBOSS_HOME/lib/jboss-common.jar"/>
+	<classpathentry kind="var" path="JBOSS_HOME/lib/jboss-jmx.jar"/>
+	<classpathentry kind="var" path="JBOSS_HOME/lib/jboss-system.jar"/>
+	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/servlet-api.jar"/>
+	<classpathentry kind="src" path="/dcm4jboss-ejb"/>
+	<classpathentry kind="lib" path="C:/workspaces/cananolab/software/cananolab-client/lib/globus/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="C:/workspaces/cananolab/software/cananolab-client/lib/globus/servlet.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/dcm4che14"/>
+	<classpathentry kind="lib" path="C:/downloads/dcm4che14/dcm4che14/build/dcm4che-1.4.34/lib/dcm4che.jar"/>
+	<classpathentry kind="lib" path="C:/downloads/dcm4che14/lib/javax.security.jar"/>
+	<classpathentry kind="lib" path="C:/downloads/dcm4che14/lib/jboss-jmx.jar"/>
+	<classpathentry kind="lib" path="C:/downloads/dcm4che14/lib/jboss-system.jar"/>
+	<classpathentry kind="lib" path="C:/downloads/dcm4che14/lib/dcm4che-audit-2.0.25.jar"/>
+	<classpathentry kind="lib" path="C:/downloads/dcm4che14/lib/javax.ejb.jar"/>
+	<classpathentry kind="lib" path="lib/nbia-domain.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-annotations.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate-entitymanager.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate3.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
