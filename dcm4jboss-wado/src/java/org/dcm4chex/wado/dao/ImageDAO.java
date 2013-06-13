@@ -4,6 +4,7 @@ package org.dcm4chex.wado.dao;
 import gov.nih.nci.nbia.internaldomain.GeneralImage;
 
 import org.dcm4chex.wado.common.HibernateUtil;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -27,7 +28,21 @@ public class ImageDAO {
 
 		try {
 			transaction = session.beginTransaction();
-			generalImage = (GeneralImage) session.createCriteria(GeneralImage.class).add(Restrictions.eq("SOPInstanceUID", sopInstanceUid)).uniqueResult();
+//			generalImage = (GeneralImage) session.createCriteria(GeneralImage.class).add(Restrictions.eq("SOPInstanceUID", sopInstanceUid)).uniqueResult();
+			
+/*			Another way of creating Criteria
+ 			Criteria c = session.createCriteria(GeneralImage.class);
+			c.add(Restrictions.eq("SOPInstanceUID", sopInstanceUid));
+			Criteria cx = c.createCriteria("generalSeries");
+			cx.add(Restrictions.eq("visibility", "1"));
+			generalImage = (GeneralImage) c.uniqueResult();  */
+			
+			Criteria crit = session.createCriteria(GeneralImage.class, "generalImage");
+			crit.createAlias("generalImage.generalSeries", "generalSeries");
+			crit.add(Restrictions.eq("generalImage.SOPInstanceUID", sopInstanceUid));
+			crit.add(Restrictions.eq("generalSeries.visibility", "1"));
+			generalImage = (GeneralImage) crit.uniqueResult();
+			
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();

@@ -451,7 +451,6 @@ public class WADOSupport implements NotificationListener {
 	        
 	        ImageDAO imageDAO = new ImageDAO();
 	        GeneralImage generalImage = imageDAO.getGeneralImageBySOPInstanceUid(req.getObjectUID());
-	        log.error("Print General Image Content" + generalImage.getFilename() );
 	        
 	        if ( generalImage == null ) {
 	        	log.error("Cant get DICOM Object file reference for " + req.getObjectUID());
@@ -460,6 +459,8 @@ public class WADOSupport implements NotificationListener {
 	                    HttpServletResponse.SC_NOT_FOUND,
 	                    "DICOM object not found! objectUID:" + req.getObjectUID());
 	        }
+
+	        log.error("Print General Image Content" + generalImage.getFilename() );
 
 	        objectFileName = generalImage.getFilename();
 	        String contentType = req.getContentTypes().get(0).toString();
