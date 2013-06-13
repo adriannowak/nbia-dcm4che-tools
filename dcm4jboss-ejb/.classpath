@@ -5,7 +5,6 @@
 	<classpathentry kind="src" path="src/java"/>
 	<classpathentry kind="src" path="src/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="/dcm4che14"/>
 	<classpathentry exported="true" kind="var" path="JBOSS_HOME/server/default/lib/jboss-j2ee.jar" sourcepath="/JBOSS_SRC/j2ee/src/main"/>
 	<classpathentry kind="var" path="JBOSS_HOME/lib/concurrent.jar"/>
 	<classpathentry kind="var" path="JBOSS_HOME/server/default/lib/jboss-common-jdbc-wrapper.jar"/>
@@ -15,7 +14,8 @@
 	<classpathentry kind="var" path="CACTUS_HOME/lib/cactus.core.framework.uberjar.javaEE.14-1.8.1.jar"/>
 	<classpathentry kind="var" path="CACTUS_HOME/lib/junit-3.8.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="src/etc/common/lib/dcm4che-soundex-2.0.25.jar"/>
-	<classpathentry kind="lib" path="C:/downloads/dcm4che14/lib/javax.ejb.jar"/>
-	<classpathentry kind="lib" path="C:/downloads/dcm4che14/dcm4che14/build/dcm4che-1.4.34/lib/dcm4che.jar"/>
+	<classpathentry kind="lib" path="C:/Workspaces/nbia-dcm4che-tools/not_deployed_jars/javax.ejb.jar"/>
+	<classpathentry kind="lib" path="C:/Workspaces/nbia-dcm4che-tools/nbia_dist_files/dcm4che.jar"/>
+	<classpathentry kind="lib" path="C:/Workspaces/nbia-dcm4che-tools/not_deployed_jars/log4j.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
