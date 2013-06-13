@@ -53,6 +53,7 @@
 	<property name="service.deploy.dir" value="${deploy.root}/deploy"/>
 	<property name="xmbean.deploy.dir" value="${deploy.root}/conf/xmdesc"/>
 	<property name="xsl.deploy.dir" value="${deploy.root}/conf/dcm4chee-wado"/>
+	<property name="local.jar.deploy.dir" value="/bin/jboss-4.2.3.GA/server/default/lib"/>
 
 	<path id="class.path">
 		<pathelement location="${dcm4che.jar}"/>
@@ -146,6 +147,10 @@
 		<copy todir="${xsl.deploy.dir}" >
 			<fileset dir="${conf.xsl.dir}" includes="**/*.xsl" />
 		</copy>
+	</target>
+	
+	<target name="deploy_local_jar" depends="jar">
+		<copy file="${jar.file}" todir="${local.jar.deploy.dir}" />	
 	</target>
 	
 </project>
