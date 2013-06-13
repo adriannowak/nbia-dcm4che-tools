@@ -19,5 +19,6 @@
 	<classpathentry kind="lib" path="C:/Workspaces/nbia-dcm4che-tools/not_deployed_jars/javax.security.jar"/>
 	<classpathentry kind="lib" path="C:/Workspaces/nbia-dcm4che-tools/not_deployed_jars/jboss-jmx.jar"/>
 	<classpathentry kind="lib" path="C:/Workspaces/nbia-dcm4che-tools/not_deployed_jars/jboss-system.jar"/>
+	<classpathentry kind="lib" path="C:/Workspaces/nbia-dcm4che-tools/nbia_dist_files/dcm4che-audit-2.0.25.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
