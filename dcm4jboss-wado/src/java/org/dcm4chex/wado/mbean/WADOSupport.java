@@ -154,7 +154,7 @@ public class WADOSupport implements NotificationListener {
 
     public static final String CONTENT_TYPE_HTML = "text/html";
 
-    private static final String CONTENT_TYPE_XHTML = "application/xhtml+xml";
+    protected static final String CONTENT_TYPE_XHTML = "application/xhtml+xml";
 
     public static final String CONTENT_TYPE_XML = "text/xml";
 
@@ -197,7 +197,7 @@ public class WADOSupport implements NotificationListener {
     
     private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(WADOSupport.class);
 
-    private static final DcmObjectFactory dof = DcmObjectFactory.getInstance();
+    protected static final DcmObjectFactory dof = DcmObjectFactory.getInstance();
 
     private ObjectName queryRetrieveScpName = null;
     private ObjectName moveScuServiceName = null;
@@ -223,7 +223,7 @@ public class WADOSupport implements NotificationListener {
 
     private static MBeanServer server;
 
-    private static TagDictionary dict = null;
+    protected static TagDictionary dict = null;
 
     private String htmlXslURL = "resource:xsl/sr_html.xsl";
 
@@ -233,13 +233,13 @@ public class WADOSupport implements NotificationListener {
 
     private String dicomXslURL = "resource:xsl/dicom_html.xsl";
 
-    private String contentTypeDicomXML;
+    protected String contentTypeDicomXML;
 
     private Map mapTemplates = new HashMap();
 
     private String srImageRows;
 
-    private boolean disableCache;
+    protected boolean disableCache;
 
     private boolean renderOverlays = false;
     
@@ -253,7 +253,7 @@ public class WADOSupport implements NotificationListener {
     private boolean jpgWriterSupportsByteColormap;
     private boolean jpgWriterSupportsShortColormap;
     
-    private String objectFileName = null;
+    protected String objectFileName = null;
 
     public boolean isRenderOverlays() {
         return renderOverlays;
@@ -435,101 +435,6 @@ public class WADOSupport implements NotificationListener {
         return resp;
     }
 
-    public WADOResponseObject getNbiaWADOObject(WADORequestObject req)
-    	    throws Exception {
-	        log.info("Get NBIA WADO object for " + req.getObjectUID());
-	        
-	        Dataset dsQ = dof.newDataset();
-            dsQ.putUI(Tags.SOPInstanceUID, req.getObjectUID());
-            dsQ.putUI(Tags.SOPClassUID);
-            dsQ.putLO(Tags.PatientID);
-            dsQ.putPN(Tags.PatientName);
-            dsQ.putUI(Tags.StudyInstanceUID);
-            dsQ.putUI(Tags.SeriesInstanceUID);
-            dsQ.putUI(Tags.MIMETypeOfEncapsulatedDocument);
-            dsQ.putCS(Tags.QueryRetrieveLevel, "IMAGE");
-	        
-	        ImageDAO imageDAO = new ImageDAO();
-	        GeneralImage generalImage = imageDAO.getGeneralImageBySOPInstanceUid(req.getObjectUID());
-	        
-	        if ( generalImage == null ) {
-	        	log.error("Cant get DICOM Object file reference for " + req.getObjectUID());
-	        	
-	        	return new WADOStreamResponseObjectImpl(null, CONTENT_TYPE_HTML,
-	                    HttpServletResponse.SC_NOT_FOUND,
-	                    "DICOM object not found! objectUID:" + req.getObjectUID());
-	        }
-
-	        log.error("Print General Image Content" + generalImage.getFilename() );
-
-	        objectFileName = generalImage.getFilename();
-	        String contentType = req.getContentTypes().get(0).toString();
-	        log.debug("preferred ContentType:" + contentType);
-	        WADOResponseObject resp = null;
-	        if (contentType == null) {
-	            return new WADOStreamResponseObjectImpl(null, CONTENT_TYPE_HTML,
-	                    HttpServletResponse.SC_NOT_ACCEPTABLE,
-	                    "Requested object can not be served as requested content type! Requested contentType(s):"
-	                    + req.getRequest().getParameter("contentType"));
-	        }
-//	        req.setObjectInfo(objectDs);
-	        if (CONTENT_TYPE_JPEG.equals(contentType) || CONTENT_TYPE_PNG.equals(contentType)
-	                || CONTENT_TYPE_PNG16.equals(contentType)) {
-	            return this.handleNbiaImage(req, contentType);
-	        } else if (CONTENT_TYPE_DICOM.equals(contentType)) {
-	            return handleNbiaDicom(req); // audit log is done in handleDicom to
-	            // avoid extra query.
-	        }
-	        File file = null;
-	        try {
-	            file = this.getNbiaDICOMFile(req.getStudyUID(), req.getSeriesUID(), req
-	                    .getObjectUID());
-	            if (file == null) {
-	                if (log.isDebugEnabled())
-	                    log.debug("Dicom object not found: " + req);
-	                return new WADOStreamResponseObjectImpl(null, contentType,
-	                        HttpServletResponse.SC_NOT_FOUND,
-	                "DICOM object not found!");
-	            }
-	        } catch (IOException x) {
-	            log.error("Exception in getWADOObject: " + x.getMessage(), x);
-	            return new WADOStreamResponseObjectImpl(null, contentType,
-	                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-	            "Unexpected error! Cant get file");
-	        } catch (NeedRedirectionException nre) {
-	            return handleNeedRedirectException(req, contentType, nre);
-	        }
-//	        String sopCuid = objectDs.getString(Tags.SOPClassUID);
-	        if (CONTENT_TYPE_DICOM_XML.equals(contentType)) {
-	            if (dict == null)
-	                dict = DictionaryFactory.getInstance().getDefaultTagDictionary();
-	            resp = handleTextTransform(req, file, contentTypeDicomXML,
-	                    getDicomXslURL(), dict);
-/*	        } else if ( this.getEncapsulatedSopCuids().containsValue(sopCuid)) {
-	            resp = handleEncaps(file, contentType);
-	        } else if ( this.getVideoSopCuids().containsValue(sopCuid)){
-	            resp = handleVideo(file);   */
-	        } else if (CONTENT_TYPE_HTML.equals(contentType)) {
-	            resp = handleTextTransform(req, file, contentType, getHtmlXslURL(),
-	                    null);
-	        } else if (CONTENT_TYPE_XHTML.equals(contentType)) {
-	            resp = handleTextTransform(req, file, contentType,
-	                    getXHtmlXslURL(), null);
-	        } else if (CONTENT_TYPE_XML.equals(contentType)) {
-	            resp = handleTextTransform(req, file, CONTENT_TYPE_XML,
-	                    getXmlXslURL(), null);
-	        } else {
-	            log.debug("Content type not supported! :" + contentType
-	                    + "\nrequested contentType(s):" + req.getContentTypes()
-	                    + " SOP Class UID:"); // + objectDs.getString(Tags.SOPClassUID));
-	            resp = new WADOStreamResponseObjectImpl(null, CONTENT_TYPE_DICOM,
-	                    HttpServletResponse.SC_NOT_IMPLEMENTED,
-	                    "This method is not implemented for requested (preferred) content type!"
-	                    + contentType);
-	        }
-	        return resp;
-     }
-    
     private WADOResponseObject tryToShortCircuitIconCacheLookup(WADORequestObject req) {
         try {
             log.debug("trying to short-circuit icon cache lookup!");
@@ -564,7 +469,7 @@ public class WADOSupport implements NotificationListener {
         return null;
     }
 
-    private WADOResponseObject handleNeedRedirectException(
+    protected WADOResponseObject handleNeedRedirectException(
             WADORequestObject req, String contentType,
             NeedRedirectionException nre) {
         if ( nre.getExternalRetrieveAET() == null ) {
@@ -699,47 +604,6 @@ public class WADOSupport implements NotificationListener {
         }
         return getUpdatedInstance(req, checkTransferSyntax(req
                 .getTransferSyntax()));
-    }
-    
-    public WADOResponseObject handleNbiaDicom(WADORequestObject req) {
-        File file = null;
-        try {
-            file = this.getNbiaDICOMFile(req.getStudyUID(), req.getSeriesUID(), req
-                    .getObjectUID());
-            if (file == null) {
-                if (log.isDebugEnabled())
-                    log.debug("Dicom object not found: " + req);
-                return new WADOStreamResponseObjectImpl(null,
-                        CONTENT_TYPE_DICOM, HttpServletResponse.SC_NOT_FOUND,
-                "DICOM object not found!");
-            }
-        } catch (IOException x) {
-            log.error("Exception in handleDicom: " + x.getMessage(), x);
-            return new WADOStreamResponseObjectImpl(null, CONTENT_TYPE_DICOM,
-                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-            "Unexpected error! Cant get dicom object");
-        } catch (NeedRedirectionException nre) {
-            return handleNeedRedirectException(req, CONTENT_TYPE_DICOM, nre);
-        }
-
-        try {
-            WADOStreamResponseObjectImpl resp = new WADOStreamResponseObjectImpl(
-                    new FileInputStream(file), CONTENT_TYPE_DICOM,
-                    HttpServletResponse.SC_OK, null);
-            log.info("Original Dicom object file retrieved (useOrig=true) objectUID:"
-                    + req.getObjectUID());
-            Dataset ds = req.getObjectInfo();
-//            ds.putPN(Tags.PatientName, ds.getString(Tags.PatientName)
-//                    + " (orig)");
-            resp.setPatInfo(ds);
-            return resp;
-        } catch (FileNotFoundException e) {
-            log.error("Dicom File not found (useOrig=true)! file:" + file);
-            return new WADOStreamResponseObjectImpl(null,
-                    CONTENT_TYPE_DICOM,
-                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-            "Unexpected error! Cant get dicom object");
-        }
     }
     
     private WADOResponseObject handleEncaps(File file, String contentType) {
@@ -945,66 +809,6 @@ public class WADOSupport implements NotificationListener {
         }
     }
     
-    
-    public WADOResponseObject handleNbiaImage(WADORequestObject req, String contentType) {
-        String studyUID = req.getStudyUID();
-        String seriesUID = req.getSeriesUID();
-        String instanceUID = req.getObjectUID();
-        String rows = req.getRows();
-        String columns = req.getColumns();
-        String frameNumber = req.getFrameNumber();
-        String region = req.getRegion();
-        String windowWidth = req.getWindowWidth();
-        String windowCenter = req.getWindowCenter();
-        String imageQuality = req.getImageQuality();
-        
-        disableCache = true;
-
-        try {
-            int frame = 0;
-            if (frameNumber != null) {
-                frame = Integer.parseInt(frameNumber)-1;
-            }
-            if (disableCache) {
-                BufferedImage bi = getNbiaBufferedImage(studyUID, seriesUID, instanceUID, rows,
-                        columns, frame, region, windowWidth, windowCenter, contentType);
-                return new WADOImageResponseObjectImpl(bi, WADOCacheImpl.getWADOCache(), 
-                        imageQuality != null ? imageQuality : WADOCacheImpl.getWADOCache().getImageQuality(),
-                        contentType, HttpServletResponse.SC_OK, "Info: Caching disabled!");
-            } else {
-                File file = getNbiaImage(studyUID, seriesUID, instanceUID, rows, columns,
-                        frame, region, windowWidth, windowCenter,
-                        imageQuality, contentType);
-                if (file != null) {
-                    WADOStreamResponseObjectImpl resp = new WADOStreamResponseObjectImpl(
-                            new FileInputStream(file), contentType,
-                            HttpServletResponse.SC_OK, null);
-                    resp.setPatInfo(req.getObjectInfo());
-                    return resp;
-                } else {
-                    return new WADOStreamResponseObjectImpl(null,
-                            contentType, HttpServletResponse.SC_NOT_FOUND,
-                    "DICOM object not found!");
-                }
-            }
-        } catch (NeedRedirectionException nre) {
-            return handleNeedRedirectException(req, contentType, nre);
-        } catch (NoImageException x1) {
-            return new WADOStreamResponseObjectImpl(null, contentType,
-                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-            "Cant get jpeg from requested object");
-        } catch (ImageCachingException x1) {
-            return new WADOImageResponseObjectImpl(x1.getImage(), WADOCacheImpl.getWADOCache(), 
-                    imageQuality != null ? imageQuality : WADOCacheImpl.getWADOCache().getImageQuality(),
-                            contentType, HttpServletResponse.SC_OK, "Warning: Caching failed!");
-        } catch (Exception x) {
-            log.error("Exception in handleJpg: " + x.getMessage(), x);
-            return new WADOStreamResponseObjectImpl(null, contentType,
-                    HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
-            "Unexpected error! Cant get jpeg");
-        }
-    }
-    
     /**
      * 
      * @param studyUID
@@ -1077,55 +881,7 @@ public class WADOSupport implements NotificationListener {
         return file;
     }
     
-    public File getNbiaImage(String studyUID, String seriesUID, String instanceUID,
-            String rows, String columns, int frame, String region,
-            String windowWidth, String windowCenter, String imageQuality, String contentType)
-    throws IOException, NeedRedirectionException, NoImageException,
-    ImageCachingException {
-        WADOCache cache = WADOCacheImpl.getWADOCache();
-        File file;
-        BufferedImage bi = null;
-
-        String suffix = null;
-        if (frame > 0)
-            suffix = "-" + frame;
-        else
-            frame = 0;
-        
-        file = cache.getImageFile(studyUID, seriesUID, instanceUID, rows,
-                columns, region, windowWidth, windowCenter, imageQuality,
-                contentType, suffix);
-        if (file == null) {
-            bi = getNbiaBufferedImage(studyUID, seriesUID, instanceUID, rows,
-                    columns, frame, region, windowWidth, windowCenter, contentType);
-            if (bi != null) {
-                try {
-                    file = cache.putImage(bi, studyUID, seriesUID, instanceUID,
-                            rows, columns, region, windowWidth, windowCenter,
-                            imageQuality, contentType, suffix);
-                    if (log.isTraceEnabled() && CONTENT_TYPE_PNG16.equals(contentType)) {
-                        for (Iterator<ImageReader> it = ImageIO.getImageReadersByFormatName("PNG") ; it.hasNext() ; ) {
-                            ImageReader reader = it.next();
-                            reader.setInput(ImageIO.createImageInputStream(file));
-                            BufferedImage b = reader.read(0);
-                            showMinMaxHist(b, "cached file:");
-                            break;
-                        }
-                    }
-
-                } catch (Exception x) {
-                    log.warn("Error caching image file! Return image without caching (Enable DEBUG for stacktrace)!");
-                    log.debug("Stacktrace for caching error:",x);
-                    throw new ImageCachingException(bi);
-                }
-            } else {
-                throw new NoImageException();
-            }
-        }
-        return file;
-    }    
-
-    private BufferedImage getBufferedImage(String studyUID, String seriesUID,
+    protected BufferedImage getBufferedImage(String studyUID, String seriesUID,
             String instanceUID, String rows, String columns, int frame,
             String region, String windowWidth, String windowCenter, String contentType) throws IOException, NeedRedirectionException {
         File dicomFile = getDICOMFile(studyUID, seriesUID, instanceUID);
@@ -1137,21 +893,9 @@ public class WADOSupport implements NotificationListener {
         }
     }
     
-    private BufferedImage getNbiaBufferedImage(String studyUID, String seriesUID,
-            String instanceUID, String rows, String columns, int frame,
-            String region, String windowWidth, String windowCenter, String contentType) throws IOException, NeedRedirectionException {
-        File dicomFile = getNbiaDICOMFile(studyUID, seriesUID, instanceUID);
-        if (dicomFile != null) {
-            return getImage(dicomFile, frame, rows, columns, region,
-                    windowWidth, windowCenter, contentType);
-        } else {
-            return null;
-        }
-    }    
-
     /* _ */
 
-    private WADOResponseObject handleTextTransform(WADORequestObject req,
+    protected WADOResponseObject handleTextTransform(WADORequestObject req,
             File file, String contentType, String xslURL, TagDictionary dict) {
         try {
             DataInputStream in = new DataInputStream(new BufferedInputStream(
@@ -1330,42 +1074,6 @@ public class WADOSupport implements NotificationListener {
                     new Object[] { instanceUID,  studyUID},
                     new String[] { String.class.getName(),
                             String.class.getName() });
-
-        } catch (Exception e) {
-            if (e.getCause() instanceof UnknownAETException) {
-                //Indicate NeedRedirect with unknown external retrieve AET
-                throw new NeedRedirectionException(
-                        "Can't redirect WADO request to external retrieve AET! Unknown AET:"
-                        +e.getCause().getMessage(), null);
-            }
-            log.error("Failed to get DICOM file:" + instanceUID, e);
-        }
-        if (dicomObject == null)
-            return null; // not found!
-        if (dicomObject instanceof File)
-            return (File) dicomObject; // We have the File!
-        if (dicomObject instanceof AEDTO) {
-            AEDTO ae = (AEDTO) dicomObject;
-            if ("DICOM_QR_ONLY".equals(ae.getWadoURL())) {
-                return fetchFromExternalRetrieveAET(ae, studyUID, seriesUID, instanceUID);
-            }
-            throw new NeedRedirectionException(null, (AEDTO) dicomObject);
-        }
-        return null;
-    }
-    
-    public File getNbiaDICOMFile(String studyUID, String seriesUID,
-            String instanceUID) throws IOException, NeedRedirectionException {
-        Object dicomObject = null;
-        try {
-//            dicomObject = new File("/nbia_storage/0000000000/000/000/001.dcm");
-        	String filename = objectFileName.replace("\\", "/");
-        	
-	        if( filename.toLowerCase().startsWith("c:/"))
-	        	filename = filename.substring(2);
-        	log.error("replaced \\" + filename );
-
-            dicomObject = new File(filename);
 
         } catch (Exception e) {
             if (e.getCause() instanceof UnknownAETException) {
@@ -1623,7 +1331,7 @@ public class WADOSupport implements NotificationListener {
      * @return
      * @throws IOException
      */
-    private BufferedImage getImage(File file, int frame, String rows,
+    protected BufferedImage getImage(File file, int frame, String rows,
             String columns, String region, String windowWidth,
             String windowCenter, String contentType) throws IOException {
         ImageReader reader = getDicomImageReader();
@@ -1822,7 +1530,7 @@ public class WADOSupport implements NotificationListener {
         return biDest;
     }
 
-    private void showMinMaxHist(BufferedImage bi, String msg) {
+    protected void showMinMaxHist(BufferedImage bi, String msg) {
         if (log.isDebugEnabled()) {
             log.debug("###############################################################################");
             log.debug("##########"+msg);

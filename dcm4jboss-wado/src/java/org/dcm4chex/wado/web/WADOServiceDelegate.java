@@ -70,8 +70,8 @@ import org.jboss.mx.util.MBeanServerLocator;
  */
 public class WADOServiceDelegate {
 
-    private static ObjectName wadoServiceName = null;
-	private static MBeanServer server;
+    protected static ObjectName wadoServiceName = null;
+	protected static MBeanServer server;
 	private static boolean studyPermissionCheckEnabled;
 	private static ArrayList disableStudyPermissionUserList;
 	
@@ -133,28 +133,6 @@ public class WADOServiceDelegate {
         return resp;
 	}
 	
-	/**
-	 * Makes the MBean call to get the WADO response object for given WADO request.
-	 * 
-	 * @param reqVO	The WADO request.
-	 * 
-	 * @return The WADO response object.
-	 */
-	public WADOResponseObject getNbiaWADOObject( WADORequestObject reqVO ) {
-		WADOResponseObject resp = null;
-		reqVO.setStudyPermissionCheckDisabled( isStudyPermissionCheckDisabled(reqVO.getRequest()) );
-		try {
-	        Object o = server.invoke(wadoServiceName,
-	                "getNbiaWADOObject",
-	                new Object[] { reqVO },
-	                new String[] { WADORequestObject.class.getName() } );
-	        resp = (WADOResponseObject) o;
-		} catch ( Exception x ) {
-			log.error( "Exception occured in getNbiaWADOObject: "+x.getMessage(), x );
-			resp = new WADOStreamResponseObjectImpl( null, "text.html", HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unexpected error in WADO service ("+wadoServiceName+"): "+x.getMessage());
-		}
-        return resp;
-	}
 	
 	public boolean isStudyPermissionCheckDisabled(HttpServletRequest request) {
 		log.debug("studyPermissionCheckEnabled:"+studyPermissionCheckEnabled);

@@ -516,28 +516,6 @@ public class WADOService extends AbstractCacheService {
         return resp;
     }
     
-    /**
-     * Get the requested DICOM object as File packed in a WADOResponseObject.
-     * <p>
-     * 
-     * @param reqVO
-     *            The request parameters packed in an value object.
-     * 
-     * @return The value object containing the retrieved object or an error.
-     * @throws Exception 
-     */
-    public WADOResponseObject getNbiaWADOObject(WADORequestObject reqVO) throws Exception {
-        long t1 = System.currentTimeMillis();
-        WADOResponseObject resp = support.getNbiaWADOObject(reqVO);
-
-        log.debug("Suppress audit log! Disabled for host ip:"
-                    + (support.isDisableDNS() ? reqVO.getRemoteAddr() : reqVO.getRemoteHost()));
-
-        long t2 = System.currentTimeMillis();
-        log.debug("getNbiaWADOObject(): " + (t2 - t1) + "ms");
-        return resp;
-    }    
-
     public String showImageWriter(String formatName) {
         return cache.showImageWriter(formatName);
     }

@@ -25,11 +25,11 @@
       value="org.jboss.mx.persistence.DelegatingPersistenceManager" />
   </descriptors>
 
-  <class>org.dcm4chex.wado.mbean.WADOService</class>
+  <class>org.dcm4chex.wado.mbean.NbiaWADOService</class>
 
   <constructor>
     <description>The default constructor</description>
-    <name>WADOService</name>
+    <name>NbiaWADOService</name>
   </constructor>
 
   <attribute access="read-write" getMethod="getCacheDataRootDir"

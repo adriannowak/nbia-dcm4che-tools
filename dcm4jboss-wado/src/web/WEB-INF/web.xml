@@ -12,7 +12,7 @@
 	<servlet>
 		<servlet-name>wado</servlet-name>
 		<display-name>WADO - Web Access to DICOM Persistent Objects</display-name>
-		<servlet-class>org.dcm4chex.wado.web.WADOServlet</servlet-class>
+		<servlet-class>org.dcm4chex.wado.web.NbiaWADOServlet</servlet-class>
 
 		<!--
 			The configuration base for WADO service.

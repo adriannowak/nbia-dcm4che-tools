@@ -61,7 +61,7 @@ import org.dcm4chex.wado.common.WADOResponseObject;
 public class WADOServlet extends HttpServlet {
 
     /** holds the WADOServiceDelegate instance */
-    private static WADOServiceDelegate delegate;
+    protected static WADOServiceDelegate delegate;
 
     /** serialVersionUID because super class is serializable. */
     private static final long serialVersionUID = 3257008748022085682L;
@@ -111,7 +111,7 @@ public class WADOServlet extends HttpServlet {
             return;
         }
         long twget1 = System.currentTimeMillis();
-        WADOResponseObject respObject = delegate.getNbiaWADOObject( (WADORequestObject)reqObject );
+        WADOResponseObject respObject = delegate.getWADOObject( (WADORequestObject)reqObject );
         long twget2 = System.currentTimeMillis();
         int returnCode = respObject.getReturnCode();
         if ( returnCode == HttpServletResponse.SC_OK ) {
